@@ -82,7 +82,6 @@ img {
 /* хедер */
 
 .header {
-  background-color: var(--primary-background-color);
   border-bottom: 1px solid var(--header-border);
 }
 
@@ -187,7 +186,9 @@ img {
   border-radius: 2px;
   opacity: 0;
   transform: scaley(1);
-  transition-duration: 500ms;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link.current::after {
@@ -197,7 +198,9 @@ img {
 .link.current:hover::after {
   opacity: 1;
   transform: scaley(0);
-  transition-duration: 500ms;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .auth-nav-link {
   display: block;
@@ -371,13 +374,14 @@ img {
   color: var(--second-text-color);
 }
 
-.example:hover,
-.example:focus {
+.object:hover,
+.object:focus {
   box-shadow: var(--icon-shadow);
   cursor: pointer;
 }
 
 .object {
+  display: block;
   text-decoration: none;
   color: inherit;
 }
@@ -402,13 +406,13 @@ img {
   text-align: left;
   padding: 63px 24px;
   transform: translateY(100%);
-  transition: transform 250ms ease;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--supplementary-color);
   background-color: var(--card-accent);
 }
 
-.example:hover .overlay,
-.example:focus .overlay {
+.object:hover .overlay,
+.object:focus .overlay {
   transform: translateY(0%);
 }
 
@@ -509,14 +513,14 @@ img {
   position: absolute;
   bottom: 0;
   height: 70px;
-  width: 370px;
+  width: 100%;
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   text-align: center;
-  padding: 27px 82px;
+  padding: 27px 0;
   background-color: var(--down-overlay);
   color: var(--supplementary-color);
 }
@@ -594,7 +598,7 @@ img {
 /* анимация */
 
 .social-icons-item {
-  transition-property: fill, background-color;
+  transition-property: background-color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -606,11 +610,10 @@ img {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background-color: var(--primary-background-color);
 
   /* анимация */
 
-  transition-property: fill, background-color;
+  transition-property: color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -624,7 +627,6 @@ img {
 .social-icons-link:hover .social-icons-svg,
 .social-icons-link:focus .social-icons-svg {
   fill: var(--primary-background-color);
-  background-color: var(--accent-text-color);
 }
 
 .social-icons-item:not(:last-child) {
